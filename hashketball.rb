@@ -144,7 +144,7 @@ end
 
 def shoe_size(name_of_player) ------- #to not confuse myself with player_name key/value pair
   
-  game_hash.each do |team_location, team_data| #team_location, and team_data
+  game_hash.each do |team_location, team_data| 
 
     team_data[:players].each do | player_name |
       if (player_name[:player_name] == name_of_player)
@@ -158,9 +158,9 @@ end
 
 def team_colors(team_name)
   
-  game_hash.each do |k, v|
-      if v[:team_name] == team_name
-        return v[:colors]
+  game_hash.each do |team_location, team_name_color_info|
+      if team_name_color_info[:team_name] == team_name
+        return team_name_color_info[:colors]
       end 
   end 
   
