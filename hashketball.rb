@@ -171,10 +171,10 @@ def team_names
   
   team_names_arr = []
   
-  game_hash.each do |k, v|
-     v.each do |key, value|
-       if key == :team_name
-         team_names_arr.push(value) #Note to self - pushing :team_names into empty array
+  game_hash.each do |team_location, team_name_color_info|
+     team_name_color_info.each do |team_name_key, team_name_value|
+       if team_name_key == :team_name
+         team_names_arr.push(team_name_value) #Note to self - pushing :team_names into empty array
         end
      end
   end 
