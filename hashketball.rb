@@ -1,4 +1,7 @@
 # Write your code below game_hash
+
+require "pry"
+
 def game_hash
   {
     home: {
@@ -126,4 +129,102 @@ def game_hash
   }
 end
 
-# Write code here
+###### -------------- # Write code here -----------
+
+def num_points_scored(players_name) 
+  
+  game_hash.each do |k, v|
+    v[:players].each do |p|
+      if (p[:player_name] == players_name)
+        return p[:points]
+      end
+    end
+  end 
+end
+
+def shoe_size(name_of_player) ------- #to not confuse myself with player_name key/value pair
+  
+  game_hash.each do |team_location, team_data| #team_location, and team_data
+
+    team_data[:players].each do | player_name |
+      if (player_name[:player_name] == name_of_player)
+        return player_name[:shoe]
+      end
+    end 
+  end 
+  
+end 
+
+
+def team_colors(team_name)
+  
+  game_hash.each do |k, v|
+      if v[:team_name] == team_name
+        return v[:colors]
+      end 
+  end 
+  
+end 
+
+def team_names
+  # --- returns array --- **
+  
+  team_names_arr = []
+  
+  game_hash.each do |k, v|
+     v.each do |key, value|
+       if key == :team_name
+         team_names_arr.push(value) #Note to self - pushing :team_names into empty array
+        end
+     end
+  end 
+  return team_names_arr
+end 
+
+def player_numbers(team_name)
+  jersey_numbers = []
+  
+  game_hash.each do |k, v|
+     if (v[:team_name] == team_name)
+        v.each do |key, value|
+          if key == :players
+            value.each do | p |
+              jersey_numbers.push(p[:number])
+            end 
+          end
+        end 
+      end 
+    end
+  return jersey_numbers
+end
+
+
+def player_stats(players_name)
+  
+  game_hash.each do |k, v|
+    v.each do |key, value|
+      if key == :players 
+        value.each do | p |
+          if (p[:player_name] == players_name)
+            p.delete([:player_name])
+            ## have to remove the name from this kvp since it isn't asking for it in the return prompt
+            
+            return p
+          end
+        end
+      end
+    end
+  end
+end
+
+def big_shoe_rebounds 
+  
+  shoe_size = 0 
+  rebounds = 0
+  
+  
+  
+end #return number of rebounds with player with biggest shoe size
+
+ 
+## naming variables well, how to debug, "detective work" binding.pry = best friend
