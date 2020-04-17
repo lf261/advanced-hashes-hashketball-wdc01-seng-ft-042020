@@ -225,12 +225,11 @@ def big_shoe_rebounds
   game_hash each do |k, v|
     v[:players].each do |kk, vv|
       if kk[:player] > shoe_size 
-          shoe_size = kk[:shoe]
           rebounds_value = kk[:rebounds]
       end 
     end
   end
-  
+  return rebounds_value
 end #return number of rebounds with player with biggest shoe size
 
  
