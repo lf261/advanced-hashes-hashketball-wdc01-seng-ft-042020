@@ -133,10 +133,10 @@ end
 
 def num_points_scored(players_name) 
   
-  game_hash.each do |k, v|
-    v[:players].each do |p|
-      if (p[:player_name] == players_name)
-        return p[:points]
+  game_hash.each do |team_location, team_name_color_info|
+    team_name_color_info[:players].each do |player_data|
+      if (player_data[:player_name] == players_name)
+        return player_data[:points]
       end
     end
   end 
@@ -223,7 +223,7 @@ def big_shoe_rebounds
   rebounds_value = 0
   
   game_hash.each do |k, v|
-    v[:players].each do |kk, vv|
+    v[:players].each do |kk|
       if (kk[:shoe] > shoe_size)
         shoe_size = kk[:shoe]
           rebounds_value = kk[:rebounds]
