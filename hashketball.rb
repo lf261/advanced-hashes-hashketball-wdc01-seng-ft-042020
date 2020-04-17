@@ -201,15 +201,16 @@ end
 
 def player_stats(players_name)
   
-  game_hash.each do |k, v|
-    v.each do |key, value|
-      if key == :players 
-        value.each do | p |
-          if (p[:player_name] == players_name)
-            p.delete([:player_name])
+  game_hash.each do |team_location, team_name_color_info|
+    team_name_color_info.each do |team_info_keys, team_data|
+      if team_info_keys == :players 
+        team_data.each do | player_data |
+          if (player_data[:player_name] == players_name)
+            player_data.delete([:player_name])
+            
             ## have to remove the name from this kvp since it isn't asking for it in the return prompt
             
-            return p
+            return player_data
           end
         end
       end
