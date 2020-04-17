@@ -184,12 +184,12 @@ end
 def player_numbers(team_name)
   jersey_numbers = []
   
-  game_hash.each do |k, v|
-     if (v[:team_name] == team_name)
-        v.each do |key, value|
-          if key == :players
-            value.each do | p |
-              jersey_numbers.push(p[:number])
+  game_hash.each do |team_location, team_name_color_info|
+     if (team_name_color_info[:team_name] == team_name)
+        team_name_color_info.each do |team_info_keys, team_data|
+          if team_info_keys == :players
+            team_data.each do | player_data |
+              jersey_numbers.push(player_data[:number])
             end 
           end
         end 
