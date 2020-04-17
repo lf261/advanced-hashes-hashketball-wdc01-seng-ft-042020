@@ -229,6 +229,7 @@ def big_shoe_rebounds
       
       if (player_data[:shoe] > shoe_size)
           shoe_size = player_data[:shoe]
+          
           rebounds_value = player_data[:rebounds]
       end 
     end
