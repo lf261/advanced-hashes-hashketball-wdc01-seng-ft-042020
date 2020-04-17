@@ -237,4 +237,4 @@ def big_shoe_rebounds
 end #return number of rebounds with player with biggest shoe size
 
  
-## naming variables well, how to debug, "detective work" binding.pry = best friend
+## naming variables well, how to debug, "detective work", binding.pry = best friend
